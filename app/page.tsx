@@ -29,32 +29,13 @@ export default function Home() {
 				quantity={100}
 			/>
 			<h1 className="z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
-				chronark
+				Aimer
 			</h1>
 
 			<div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 			<div className="my-16 text-center animate-fade-in">
 				<h2 className="text-sm text-zinc-500 ">
-					Hi, my name is Andreas, I'm building serverless and open source
-					solutions at{" "}
-					<Link
-						target="_blank"
-						href="https://upstash.com"
-						className="underline duration-500 hover:text-zinc-300"
-					>
-						Upstash
-					</Link>
-
-					<br />
-					and working on{" "}
-					<Link
-						target="_blank"
-						href="https://planetfall.io"
-						className="underline duration-500 hover:text-zinc-300"
-					>
-						planetfall.io
-					</Link>{" "}
-					at night.
+					Aimer, a distinctive singer whose husky yet sweet voice was cultivated after a throat affliction at the age of 15, has consistently topped music charts since her major debut in 2011. Known for her chart-topping single 'I beg you / 花びらたちのマーチ / Sailing', and '残響散歌/朝が来る' which made Billboard JAPAN history, her evocative music continues to resonate with fans around the world.
 				</h2>
 			</div>
 		</div>
