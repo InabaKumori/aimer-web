@@ -35,7 +35,10 @@ export default function Home() {
 			<div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 			<div className="my-16 text-center animate-fade-in">
 				<h2 className="text-sm text-zinc-500 ">
-					Aimer, a distinctive singer whose husky yet sweet voice was cultivated after a throat affliction at the age of 15, has consistently topped music charts since her major debut in 2011. Known for her chart-topping single 'I beg you / 花びらたちのマーチ / Sailing', and '残響散歌/朝が来る' which made Billboard JAPAN history, her evocative music continues to resonate with fans around the world.
+					Aimer, a distinctive singer whose husky yet sweet voice was cultivated after a throat affliction at <br />
+					the age of 15, has consistently topped music charts since her major debut in 2011. Known for her chart-topping single <br />
+					'I beg you / 花びらたちのマーチ / Sailing', and '残響散歌/朝が来る' which made Billboard JAPAN history, her evocative music <br />
+					continues to resonate with fans around the world.
 				</h2>
 			</div>
 		</div>
