@@ -7,6 +7,7 @@ const navigation = [
 	{ name: "Contact", href: "/contact" },
 ];
 
+
 export default function Home() {
 	return (
 		<div className="relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
@@ -18,8 +19,12 @@ export default function Home() {
 					 backgroundPosition: 'center',
 					 backgroundRepeat: 'no-repeat',
 					 WebkitBackgroundSize: 'cover',
+					 minHeight: '100vh',
+					 maxHeight: '100%',
 				 }}
 			/>
+
+			<div className="sm:hidden absolute inset-0 backdrop-blur-md bg-white bg-opacity-20" />
 
 			<nav className="my-16 animate-fade-in">
 				<ul className="flex items-center justify-center gap-4">
