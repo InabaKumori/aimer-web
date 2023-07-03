@@ -10,23 +10,23 @@ const navigation = [
 
 export default function Home() {
 	return (
-		<div className="relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
+		<div className="fixed flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
 
-			<div className="absolute inset-0 z-0"
+			<div className="-z-100 fixed inset-0"
 				 style={{
+					 zIndex: -100,
 					 backgroundImage: `url('/aimerfront.jpg')`,
 					 backgroundSize: 'cover',
 					 backgroundPosition: 'center',
 					 backgroundRepeat: 'no-repeat',
 					 WebkitBackgroundSize: 'cover',
-					 minHeight: '100vh',
-					 maxHeight: '100%',
 				 }}
 			/>
 
-			<div className="sm:hidden absolute inset-0 backdrop-blur-md bg-white bg-opacity-20" />
+			<div className="sm:hidden fixed inset-0 backdrop-blur-md bg-white bg-opacity-20" />
+		
 
-			<nav className="my-16 animate-fade-in">
+			<nav className="my-16 animate-fade-in" style={{zIndex: 20}}>
 				<ul className="flex items-center justify-center gap-4">
 					{navigation.map((item) => (
 						<Link
@@ -41,18 +41,20 @@ export default function Home() {
 			</nav>
 			<div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 			<Particles
-				className="absolute inset-0 -z-10 animate-fade-in"
-				quantity={100}
+				className="absolute inset-0 z-10 animate-fade-in"
+				quantity={500}
+				staticity={4}
+				ease={100}
 			/>
 
-			<h1 className="-mt-10 z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
+			<h1 className="items-center justify-center -mt-10 z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
 				Aimer
 			</h1>
+		
 
 			<div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 			<div className="my-16 text-center animate-fade-in">
 				<h2 className="text-sm text-zinc-500 ">
-
 				</h2>
 			</div>
 		</div>
