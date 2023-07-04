@@ -1,5 +1,6 @@
 "use client"
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import React from 'react';
 import Particles from "./components/particles";
 import { useState, useEffect } from 'react';
@@ -13,27 +14,32 @@ const navigation = [
 
 
 export default function Home() {
-
-	const [isPortrait, setIsPortrait] = useState(false);
+	const [isPortrait, setIsPortrait] = useState<boolean | null>(null);
 
 	useEffect(() => {
-		const checkOrientation = () => {
-	  		if (window.innerWidth < window.innerHeight) {
-				setIsPortrait(true);
-	  		} else {
-				setIsPortrait(false);
-	  		}
-		};
+	  const checkOrientation = () => {
+		setIsPortrait(window.innerHeight > window.innerWidth);
+	  };
+  
+	  // Initial check
+	  checkOrientation();
 	
-		// Initial check
-		checkOrientation();
+	  // Listen for window resize and orientationchange events
+	  window.addEventListener('resize', checkOrientation);
+	  window.addEventListener('orientationchange', checkOrientation);
+	
+	  // Cleanup
+	  return () => {
+		window.removeEventListener('resize', checkOrientation);
+		window.removeEventListener('orientationchange', checkOrientation);
+	  };
   
-		// Listen for window resize events
-		window.addEventListener('resize', checkOrientation);
+	}, []);
   
-		// Cleanup
-		return () => window.removeEventListener('resize', checkOrientation);
-  	}, []);
+	// Render only when isPortrait is determined
+	if (isPortrait === null) {
+	  return null;
+	}
 
 	return (
 		<div className="fixed flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
