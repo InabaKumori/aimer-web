@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from 'react';
 import Particles from "./components/particles";
 import { useState, useEffect } from 'react';
+import styles from './Home.module.css';
 
 
 const navigation = [
@@ -104,11 +105,15 @@ export default function Home() {
 
 		</div>
 
-			<div className="my-16 text-center animate-fade-in">
-				<h2 className="text-sm text-zinc-500 ">
 
+		{isPortrait && <div className={`my-16 text-center animate-fade-in
+		${styles['custom-style']} `}
+		>
+				<h2 className="text-sm text-zinc-500" style={{color: 'black'}}>
+				Could you kindly tilt your screen horizontally? <br />
+				It's sure to make your viewing experience extra delightful! ≧◡≦
 				</h2>
-			</div>
+			</div>}
 
 			<Particles
 				className="absolute inset-0 z-10 animate-fade-in"
