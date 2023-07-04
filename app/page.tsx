@@ -51,18 +51,19 @@ export default function Home() {
 	{isPortrait && <div className="fixed inset-0 backdrop-blur-md bg-white bg-opacity-20" />}
 		
 		
-			<div style={{    position: 'fixed',
-			top: 0, // start from top
-			left: 0, // start from left
-			width: '100%', // full width
-			height: '100%', // full height
-			display: 'flex',
-			alignItems: 'center', // center vertically in the container
-			justifyContent: 'center', // center horizontally in the container
-			flexDirection: 'column', // stack children vertically
-			zIndex: 40,}}>
+		<div style={{    
+		position: 'fixed',
+		top: 0, // start from top
+		left: 0, // start from left
+		width: '100%', // full width
+		height: '100%', // full height
+		display: 'flex',
+		alignItems: 'center', // center vertically in the container
+		justifyContent: 'center', // center horizontally in the container
+		flexDirection: 'column', // stack children vertically
+		zIndex: 40,}}>
 
-			<nav className="my-0 sm:-my-3  animate-fade-in" style={{zIndex: 20}}>
+			<nav className="-my-10 sm:-my-3  animate-fade-in" style={{zIndex: 20, marginTop: '-20vh'}}>
 				<ul className="flex items-center justify-center gap-4">
 					{navigation.map((item) => (
 						<Link
@@ -75,14 +76,38 @@ export default function Home() {
 					))}
 				</ul>
 			</nav>
-			<div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+
+			<div style={{    
+			position: 'fixed',
+			top: 0, // start from top
+			left: 0, // start from left
+			width: '100%', // full width
+			height: '100%', // full height
+			display: 'flex',
+			alignItems: 'center', // center vertically in the container
+			justifyContent: 'center', // center horizontally in the container
+			flexDirection: 'column', // stack children vertically
+			zIndex: 5,}}
+			>
+
+				<div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
 
-			<h1 style={{}}
-			className="items-center justify-center mt-3 z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
-				Aimer
-			</h1>
+				<h1 style={{}}
+				className="items-center justify-center z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
+					Aimer
+				</h1>
+				
+				<div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+	
+			</div>
 
+		</div>
+
+			<div className="my-16 text-center animate-fade-in">
+				<h2 className="text-sm text-zinc-500 ">
+
+				</h2>
 			</div>
 
 			<Particles
@@ -92,11 +117,6 @@ export default function Home() {
 				ease={100}
 			/>
 
-			<div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-			<div className="my-16 text-center animate-fade-in">
-				<h2 className="text-sm text-zinc-500 ">
-				</h2>
-			</div>
 		</div>
 	);
 }
