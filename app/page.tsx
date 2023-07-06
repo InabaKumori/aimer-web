@@ -79,7 +79,7 @@ export default function Home() {
 		flexDirection: 'column', // stack children vertically
 		zIndex: 40,}}>
 
-			<nav className="-my-10 sm:-my-3  animate-fade-in" style={{zIndex: 20, marginTop: '-20vh'}}>
+			<nav className="my-5 sm:my-8  animate-fade-in" style={{zIndex: 20, marginTop: '-20vh'}}>
 				<ul className="flex items-center justify-center gap-4">
 					{navigation.map((item) => (
 						<Link
@@ -114,7 +114,7 @@ export default function Home() {
 					fontWeight: 700,
 					fontStyle: 'normal',
 				}}
-				className="items-center justify-center z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
+				className="items-center justify-center z-10 text-8xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-8xl md:text-[12rem] whitespace-nowrap bg-clip-text ">
 					Aimer
 				</h1>
 				

@@ -2,12 +2,12 @@
 
 .custom-style {
     z-index: 0;
-    margin-top: 18vh;
+    margin-top: 25vh;
 }
 
 @media (min-width: 640px) {
   .custom-style {
     z-index: 0;
-    margin-top: 23vh;
+    margin-top: 27vh;
   }
 }
