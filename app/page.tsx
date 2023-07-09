@@ -6,6 +6,7 @@ import Particles from "./components/particles";
 import { useState, useEffect } from 'react';
 import styles from './Home.module.css';
 import Head from 'next/head';
+import { TweenLite } from "gsap";
 
 
 const navigation = [
@@ -16,6 +17,8 @@ const navigation = [
 
 
 export default function Home() {
+
+
 
 	const [isPortrait, setIsPortrait] = useState<boolean | null>(null);
 
@@ -46,6 +49,51 @@ export default function Home() {
 
 	return (
 		<>
+
+			<style>
+                @import url('/wavy.module.css');
+            </style>
+
+
+
+<div className="page" style={{zIndex: -100}}>
+
+	  
+	  <section className="three" />
+      <section className="three" />
+      <section className="hero d-flex align-items-center justify-content-center">
+        <div className="position-absolute w-100 gradient-overlay" />
+        <div className="content position-relative text-center mb-5">
+          <h1 className="hero-title blend">
+            Where Creativity <br /> &amp; Strategy Meet
+          </h1>
+		  <h1 className="hero-title blend">
+            Where Creativity <br /> &amp; Strategy Meet
+          </h1>
+        </div>
+      </section>
+	  
+
+      <section className="three" />
+      <section className="three" />
+	  <section className="three" />
+	  <section className="three" />
+	  <section className="three" />
+	  <section className="three" />
+	  <section className="three" />
+	  <section className="three" />
+	  <section className="three" />
+	  <section className="three" />
+	  <section className="three" />
+	  <section className="three" />
+	  <section className="three" />
+      <div className="custom-cursor" />
+    </div>
+
+
+
+
+
             <style>
                 @import url('https://use.typekit.net/zjl6ven.css');
             </style>
@@ -79,7 +127,8 @@ export default function Home() {
 		flexDirection: 'column', // stack children vertically
 		zIndex: 40,}}>
 
-			<nav className="my-5 sm:my-8  animate-fade-in" style={{zIndex: 20, marginTop: '-20vh'}}>
+{isPortrait && <nav className="-my-5 sm:my-0 animate-fade-in" style={{zIndex: 20, marginTop: '5vh'}}>
+				
 				<ul className="flex items-center justify-center gap-4">
 					{navigation.map((item) => (
 						<Link
@@ -91,7 +140,22 @@ export default function Home() {
 						</Link>
 					))}
 				</ul>
-			</nav>
+			</nav> }
+
+			{!isPortrait && <nav className="-my-5 sm:my-0 animate-fade-in" style={{zIndex: 20, marginTop: '-30vh'}}>
+				
+				<ul className="flex items-center justify-center gap-4">
+					{navigation.map((item) => (
+						<Link
+							key={item.href}
+							href={item.href}
+							className="text-sm duration-500 text-zinc-500 hover:text-zinc-300">
+							
+							{item.name}
+						</Link>
+					))}
+				</ul>
+			</nav> }
 
 			<div style={{    
 			position: 'fixed',
@@ -122,24 +186,33 @@ export default function Home() {
 	
 			</div>
 
-		</div>
-
-
-		{isPortrait && <div className={`my-16 text-center animate-fade-in
-		${styles['custom-style']} `}
-		>
-				<h2 className="text-sm text-zinc-500" style={{color: 'black'}}>
-				Could you kindly tilt your screen horizontally? <br />
-				It's sure to make your viewing experience extra delightful! ≧◡≦
-				</h2>
-			</div>}
-
 			<Particles
 				className="absolute inset-0 z-10 animate-fade-in"
 				quantity={500}
 				staticity={4}
 				ease={100}
 			/>
+
+{isPortrait && <div className={`text-center animate-fade-in
+		${styles['custom-style']} `}
+		style={{zIndex: -10}}>
+
+				<h2 className="text-sm text-zinc-500" style={{color: 'black', zIndex: -100}}>
+				Could you kindly tilt your screen horizontally? <br />
+				It's sure to make your viewing experience extra delightful! ≧◡≦
+				</h2>
+			</div>
+			}
+
+		</div>
+
+
+
+
+
+
+
+			
 
 		</div>
 	</>
