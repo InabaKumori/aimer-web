@@ -3,7 +3,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import React from 'react';
 import Particles from "./components/particles";
-import { useState, useEffect } from 'react';
+import { useState, useEffect , useRef } from 'react';
 import styles from './Home.module.css';
 import Head from 'next/head';
 import { TweenLite } from "gsap";
@@ -17,6 +17,19 @@ const navigation = [
 
 
 export default function Home() {
+
+	const [isPlaying, setIsPlaying] = useState(false);
+	const audioRef = useRef<HTMLAudioElement | null>(null);
+  
+	const handleAudioPlay = () => {
+	  if (audioRef.current) {
+		audioRef.current.play();
+		setIsPlaying(true);
+	  }
+	};
+
+
+
 
 
 
@@ -57,6 +70,8 @@ export default function Home() {
 
 
 
+
+
 <div className="page" style={{zIndex: -100}}>
 
 	  
@@ -69,6 +84,21 @@ export default function Home() {
 		  <br />
 		  <br />
 		  <br />
+
+		  <button onClick={handleAudioPlay}
+style={{ zIndex: 50}}
+className="items-center justify-center"
+>
+  Play Music
+</button>
+
+      <audio
+        src="/frontpage.aac"
+        ref={audioRef}
+        loop
+        style={{ zIndex: 25}}
+      />
+
 		  <br />
 		  <br />
 		  <br />
@@ -281,6 +311,7 @@ love for Aimer's music.
 				 }}
 			/>
 
+
 	{isPortrait && <div className="fixed inset-0 backdrop-blur-md bg-white bg-opacity-20" />}
 		
 		
@@ -296,6 +327,8 @@ love for Aimer's music.
 		flexDirection: 'column', // stack children vertically
 		zIndex: 40,}}>
 
+
+	  
 {isPortrait && <nav className="-my-5 sm:my-0 animate-fade-in" style={{zIndex: 20, marginTop: '5vh'}}>
 				
 				<ul className="flex items-center justify-center gap-4">
@@ -340,6 +373,10 @@ love for Aimer's music.
 			>
 
 				<div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+				
+				
+				
+
 
 
 				<h1 style={{
