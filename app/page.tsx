@@ -52,6 +52,7 @@ export default function Home() {
 
 			<style>
                 @import url('/wavy.module.css');
+				@import url('https://use.typekit.net/zjl6ven.css');
             </style>
 
 
@@ -266,13 +267,6 @@ love for Aimer's music.
     </div>
 
 
-
-
-
-            <style>
-                @import url('https://use.typekit.net/zjl6ven.css');
-            </style>
-
 	  
 		<div className="fixed flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
 
@@ -377,7 +371,7 @@ love for Aimer's music.
 				style={{
 				color: 'black',
 				zIndex: -100,
-				fontFamily: 'p22-nudgewink-pro, sans-serif',
+				fontFamily: 'p22-nudgewink-pro',
 				fontWeight: 700,
 				fontStyle: 'normal',
 				}}>
