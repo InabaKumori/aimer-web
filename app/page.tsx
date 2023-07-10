@@ -59,34 +59,209 @@ export default function Home() {
 <div className="page" style={{zIndex: -100}}>
 
 	  
-	  <section className="three" />
-      <section className="three" />
       <section className="hero d-flex align-items-center justify-content-center">
         <div className="position-absolute w-100 gradient-overlay" />
         <div className="content position-relative text-center mb-5">
           <h1 className="hero-title blend">
-            Where Creativity <br /> &amp; Strategy Meet
-          </h1>
-		  <h1 className="hero-title blend">
-            Where Creativity <br /> &amp; Strategy Meet
-          </h1>
+		  <br />
+		  <br />
+		  <br />
+		  <br />
+		  <br />
+		  <br />
+		  <br />
+		  <br />
+		  <br />
+<br />
+ˏˋ°•*⁀➷
+<br />
+<br />
+Welcome to
+<br />
+<br />
+our Aimer site,
+<br />
+<br />
+a tribute to 
+<br />
+<br />
+the husky, yet sweet 
+<br />
+<br />
+voice that enchants 
+<br />
+<br />
+listeners globally.
+<br />
+<br />
+<br />
+Step into 
+<br />
+<br />
+the musical universe 
+<br />
+<br />
+of Aimer,
+<br />
+<br />
+the record-breaking
+<br />
+<br />
+Japanese singer-songwriter.
+<br />
+<br />
+<br />
+Her story began 
+<br />
+<br />
+at the age of 15,
+<br />
+<br />
+when a vocal accident 
+<br />
+<br />
+gifted her the unique 
+<br />
+<br />
+voice that marked 
+<br />
+<br />
+her debut in 2011
+<br />
+<br />
+with 'Rokutōsei no Yoru'.
+<br />
+<br />
+<br />
+Explore Aimer's 
+<br />
+<br />
+extensive discography, 
+<br />
+<br />
+a symphony of emotions 
+<br />
+<br />
+embodied in her 
+<br />
+<br />
+captivating voice.
+<br />
+<br />
+<br />
+Aimer's music 
+<br />
+<br />
+has consistently topped charts,
+<br />
+<br />
+with her first No.1 
+<br />
+<br />
+on Oricon Weekly 
+<br />
+<br />
+in 2019, and in 2022, 
+<br />
+<br />
+'Zankyou Sanka/Asa ga Kuru'
+<br />
+<br />
+stayed at No.1 
+<br />
+<br />
+for a record-breaking 
+<br />
+<br />
+seven weeks 
+<br />
+<br />
+on Billboard JAPAN 
+<br />
+<br />
+“JAPAN HOT 100”.
+<br />
+<br />
+<br />
+Stay in touch 
+<br />
+<br />
+with all things Aimer:
+<br />
+<br />
+new releases, tours, 
+<br />
+<br />
+awards, and more.
+<br />
+<br />
+<br />
+Peruse our gallery 
+<br />
+<br />
+of Aimer for high-quality 
+<br />
+<br />
+images from concerts,
+<br />
+<br />
+album art, 
+<br />
+<br />
+and exclusive photos.
+<br />
+<br />
+<br />
+Join the discussion 
+<br />
+<br />
+with fellow Aimer 
+<br />
+<br />
+enthusiasts.
+<br />
+<br />
+Share your favorite 
+<br />
+<br />
+songs, concert experiences, 
+<br />
+<br />
+fan art, and more.
+<br />
+<br />
+<br />
+Connect with us 
+<br />
+<br />
+for any inquiries,
+<br />
+<br />
+suggestions, or 
+<br />
+<br />
+to express your 
+<br />
+<br />
+love for Aimer's music.
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+		</h1>
         </div>
       </section>
 	  
 
       <section className="three" />
       <section className="three" />
-	  <section className="three" />
-	  <section className="three" />
-	  <section className="three" />
-	  <section className="three" />
-	  <section className="three" />
-	  <section className="three" />
-	  <section className="three" />
-	  <section className="three" />
-	  <section className="three" />
-	  <section className="three" />
-	  <section className="three" />
+
+	  
       <div className="custom-cursor" />
     </div>
 
@@ -197,12 +372,37 @@ export default function Home() {
 		${styles['custom-style']} `}
 		style={{zIndex: -10}}>
 
-				<h2 className="text-sm text-zinc-500" style={{color: 'black', zIndex: -100}}>
+
+				<h2 className="text-xl text-zinc-500" 
+				style={{
+				color: 'black',
+				zIndex: -100,
+				fontFamily: 'p22-nudgewink-pro, sans-serif',
+				fontWeight: 700,
+				fontStyle: 'normal',
+				}}>
 				Could you kindly tilt your screen horizontally? <br />
 				It's sure to make your viewing experience extra delightful! ≧◡≦
 				</h2>
 			</div>
 			}
+
+<div className="fixed text-center animate-fade-in"
+    style={{
+        bottom: '3vh', // adjust this value as needed
+        transform: 'translateY(-50%)',
+    }}>
+    <h2 className="text-xl text-zinc-500"
+    style={{
+        color: 'black',
+        zIndex: -100,
+        fontFamily: 'p22-nudgewink-pro, sans-serif',
+        fontWeight: 700,
+        fontStyle: 'normal',
+    }}>
+        A little scroll up will reveal magical surprises! ✨
+    </h2>
+</div>
 
 		</div>
 
