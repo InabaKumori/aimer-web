@@ -32,10 +32,7 @@ export default function Home() {
       };
   
 
-    function handleButtonClick() {
-        toggle();
-        handleAudioPlay();
-      }
+
 
 
 
