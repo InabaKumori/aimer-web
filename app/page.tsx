@@ -309,11 +309,12 @@ love for Aimer's music.
 			alignItems: 'center', // center vertically in the container
 			justifyContent: 'center', // center horizontally in the container
 			flexDirection: 'column', // stack children vertically
-			zIndex: 50000,}}
+			zIndex: 50000,
+			pointerEvents: 'none', 
+		}}
 			>
-						  <Button />
-
-
+			
+			<Button/>
 			</ div>
 	  
 		<div className="fixed flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
@@ -343,11 +344,11 @@ love for Aimer's music.
 		alignItems: 'center', // center vertically in the container
 		justifyContent: 'center', // center horizontally in the container
 		flexDirection: 'column', // stack children vertically
-		zIndex: 40,}}>
+		zIndex: 50001,}}>
 
 
 	  
-{isPortrait && <nav className="-my-5 sm:my-0 animate-fade-in" style={{zIndex: 20, marginTop: '5vh'}}>
+{isPortrait && <nav className="-my-5 sm:my-0 animate-fade-in" style={{zIndex: 50001, marginTop: '5vh'}}>
 				
 				<ul className="flex items-center justify-center gap-4">
 					{navigation.map((item) => (
@@ -362,7 +363,7 @@ love for Aimer's music.
 				</ul>
 			</nav> }
 
-			{!isPortrait && <nav className="-my-5 sm:my-0 animate-fade-in" style={{zIndex: 20, marginTop: '-30vh'}}>
+			{!isPortrait && <nav className="-my-5 sm:my-0 animate-fade-in" style={{zIndex: 50001, marginTop: '-30vh'}}>
 				
 				<ul className="flex items-center justify-center gap-4">
 					{navigation.map((item) => (
@@ -387,7 +388,9 @@ love for Aimer's music.
 			alignItems: 'center', // center vertically in the container
 			justifyContent: 'center', // center horizontally in the container
 			flexDirection: 'column', // stack children vertically
-			zIndex: 5,}}
+			zIndex: 5,
+		
+		}}
 			>
 
 
