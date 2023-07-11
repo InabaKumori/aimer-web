@@ -44,7 +44,13 @@ function Button() {
         handleAudioPlay();
       }
 
-    
+      useEffect(() => {
+        const overlay = document.getElementById('overlay');
+        if (overlay) {
+          overlay.style.transition = "opacity 2s";
+          overlay.style.opacity = isPressed ? "1" : "0";
+        }
+      }, [isPressed]);
 
 return(
 
@@ -357,7 +363,16 @@ return(
       </span>
     </span>
   </button>
-  {isPressed && <div id="overlay"></div>}
+  <div id="overlay" style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        background: 'radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.35) 100%)',
+        zIndex: 60000,
+        opacity: isPressed ? 1 : 0,
+      }}> </div>
 </>
 );
 }
