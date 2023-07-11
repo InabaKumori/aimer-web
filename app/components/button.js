@@ -373,6 +373,8 @@ return(
         zIndex: 60000,
         opacity: isPressed ? 1 : 0,
       }}> </div>
+    
+    <div id="overlay" className={isPressed ? "visible" : "hidden"}> </div>
 </>
 );
 }
