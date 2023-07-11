@@ -7,6 +7,7 @@ import { useState, useEffect , useRef } from 'react';
 import styles from './Home.module.css';
 import Head from 'next/head';
 import { TweenLite } from "gsap";
+import Button from './components/button.js';
 
 
 const navigation = [
@@ -16,18 +17,25 @@ const navigation = [
 
 
 
+
 export default function Home() {
+
 
 	const [isPlaying, setIsPlaying] = useState(false);
 	const audioRef = useRef<HTMLAudioElement | null>(null);
-  
-	const handleAudioPlay = () => {
-	  if (audioRef.current) {
-		audioRef.current.play();
-		setIsPlaying(true);
-	  }
-	};
 
+    const handleAudioPlay = () => {
+        if (audioRef.current) {
+          audioRef.current.play();
+          setIsPlaying(true);
+        }
+      };
+  
+
+    function handleButtonClick() {
+        toggle();
+        handleAudioPlay();
+      }
 
 
 
@@ -62,13 +70,16 @@ export default function Home() {
 
 	return (
 		<>
-
+<audio
+        src="/frontpage.aac"
+        ref={audioRef}
+        loop
+        style={{ zIndex: 25}}
+      />
 			<style>
                 @import url('/wavy.module.css');
 				@import url('https://use.typekit.net/zjl6ven.css');
             </style>
-
-
 
 
 
@@ -85,19 +96,12 @@ export default function Home() {
 		  <br />
 		  <br />
 
-		  <button onClick={handleAudioPlay}
-style={{ zIndex: 50}}
-className="items-center justify-center"
->
-  Play Music
-</button>
 
-      <audio
-        src="/frontpage.aac"
-        ref={audioRef}
-        loop
-        style={{ zIndex: 25}}
-      />
+	
+
+
+
+
 
 		  <br />
 		  <br />
@@ -297,6 +301,23 @@ love for Aimer's music.
     </div>
 
 
+
+	<div style={{    
+			position: 'fixed',
+			top: 0, // start from top
+			left: 0, // start from left
+			width: '100%', // full width
+			height: '100%', // full height
+			display: 'flex',
+			alignItems: 'center', // center vertically in the container
+			justifyContent: 'center', // center horizontally in the container
+			flexDirection: 'column', // stack children vertically
+			zIndex: 50000,}}
+			>
+						  <Button />
+
+
+			</ div>
 	  
 		<div className="fixed flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
 
@@ -372,12 +393,13 @@ love for Aimer's music.
 			zIndex: 5,}}
 			>
 
+
 				<div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 				
 				
 				
-
-
+				
+				
 
 				<h1 style={{
 					fontFamily: 'remedy',
