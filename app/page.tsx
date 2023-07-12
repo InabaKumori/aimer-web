@@ -98,15 +98,16 @@ export default function Home() {
                         zIndex: 99999,
                     }}
                 >
-                    <video
-                        id="loading-video"
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                        autoPlay
-                        muted
-                        onEnded={handleVideoEnd}
-                    >
-                        <source src="/Loading.mp4" type="video/mp4" />
-                    </video>
+<video
+  id="loading-video"
+  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+  autoPlay
+  muted
+  playsInline
+  onEnded={handleVideoEnd}
+>
+    <source src="/Loading.mp4" type="video/mp4" />
+</video>
                 </div>
             ) : (
 				<>
