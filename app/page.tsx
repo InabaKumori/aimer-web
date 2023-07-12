@@ -1,13 +1,13 @@
 "use client"
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import React from 'react';
 import Particles from "./components/particles";
 import { useState, useEffect , useRef } from 'react';
 import styles from './Home.module.css';
+import Button from './components/button.js';
 import Head from 'next/head';
 import { TweenLite } from "gsap";
-import Button from './components/button.js';
+import dynamic from "next/dynamic";
 
 
 const navigation = [
@@ -20,6 +20,16 @@ const navigation = [
 
 export default function Home() {
 
+    const [isLoading, setIsLoading] = useState(true);
+
+    const handleVideoEnd = () => {
+        setIsLoading(false);
+    };
+
+
+
+
+
 
 	const [isPlaying, setIsPlaying] = useState(false);
 	const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -31,13 +41,6 @@ export default function Home() {
         }
       };
   
-
-
-
-
-
-
-
 	const [isPortrait, setIsPortrait] = useState<boolean | null>(null);
 
 	useEffect(() => {
@@ -65,18 +68,76 @@ export default function Home() {
 	  return null;
 	}
 
+
+
+
+
 	return (
 		<>
-<audio
+	<audio
         src="/frontpage.aac"
         ref={audioRef}
         loop
-        style={{ zIndex: 25}}
-      />
+        style={{ zIndex: 25}}/>
+
 			<style>
                 @import url('/wavy.module.css');
 				@import url('https://use.typekit.net/zjl6ven.css');
             </style>
+
+
+{isLoading ? (
+                <div
+                    id="loading-screen"
+                    style={{
+                        position: 'fixed',
+                        width: '100%',
+                        height: '100%',
+                        top: 0,
+                        left: 0,
+                        zIndex: 99999,
+                    }}
+                >
+                    <video
+                        id="loading-video"
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        autoPlay
+                        muted
+                        onEnded={handleVideoEnd}
+                    >
+                        <source src="/Loading.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            ) : (
+				<>
+				<div
+                id="loading-screen"
+                style={{
+                    position: 'fixed',
+                    width: '100%',
+                    height: '100%',
+                    top: 0,
+                    left: 0,
+                    zIndex: 99999,
+                    display: isLoading ? 'block' : 'none', // control visibility using CSS display
+                }}
+            >
+                <video
+                    id="loading-video"
+                    style={{width: '100%', height: '100%'}}
+                    autoPlay
+                    muted
+                    onEnded={handleVideoEnd} // video event handlers
+                >
+                    <source src="/Loading.mp4" type="video/mp4" />
+                </video>
+            </div>
+
+
+
+
+
+
 
 
 
@@ -398,7 +459,7 @@ love for Aimer's music.
 				
 				
 				
-				
+			
 				
 
 				<h1 style={{
@@ -468,6 +529,15 @@ love for Aimer's music.
 			
 
 		</div>
+		</>
+            )}
+
+
+
+
+
+
+
 	</>
 	);
 }
