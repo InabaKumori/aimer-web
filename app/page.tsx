@@ -7,6 +7,7 @@ import styles from './Home.module.css';
 import Button from './components/button.js';
 import Head from 'next/head';
 import { TweenLite } from "gsap";
+import { TweenMax } from 'gsap';
 import dynamic from "next/dynamic";
 
 
@@ -19,6 +20,10 @@ const navigation = [
 
 
 export default function Home() {
+
+
+	const bigBallRef = useRef(null);
+    const smallBallRef = useRef(null);
 
     const [isLoading, setIsLoading] = useState(true);
 
@@ -44,6 +49,51 @@ export default function Home() {
 	const [isPortrait, setIsPortrait] = useState<boolean | null>(null);
 
 	useEffect(() => {
+		// Directly use refs in the listeners
+		const onMouseMove = (e: MouseEvent) => {
+			console.log(e.clientX, e.clientY); 
+			console.log(bigBallRef.current, smallBallRef.current);
+		  
+			if (bigBallRef.current && smallBallRef.current) {
+			  TweenMax.to(bigBallRef.current, .4, {
+				x: e.clientX - 15,
+				y: e.clientY - 15
+			  });
+		  
+			  TweenMax.to(smallBallRef.current, .1, {
+				x: e.clientX - 5,
+				y: e.clientY - 7
+			  });
+			}
+		  };
+	  
+		const onMouseHover = () => {
+		  if (bigBallRef.current) {
+			TweenMax.to(bigBallRef.current, .3, {
+			  scale: 4
+			});
+		  }
+		};
+	  
+		const onMouseHoverOut = () => {
+		  if (bigBallRef.current) {
+			TweenMax.to(bigBallRef.current, .3, {
+			  scale: 1
+			});
+		  }
+		};
+	  
+		const $hoverables = document.querySelectorAll('.hoverable');
+		document.body.addEventListener('mousemove', onMouseMove);
+		$hoverables.forEach((hoverable) => {
+		  hoverable.addEventListener('mouseenter', onMouseHover);
+		  hoverable.addEventListener('mouseleave', onMouseHoverOut);
+		});
+
+
+
+
+		
 	  const checkOrientation = () => {
 		setIsPortrait(window.innerHeight > window.innerWidth);
 	  };
@@ -59,6 +109,13 @@ export default function Home() {
 	  return () => {
 		window.removeEventListener('resize', checkOrientation);
 		window.removeEventListener('orientationchange', checkOrientation);
+
+		document.body.removeEventListener('mousemove', onMouseMove);
+		$hoverables.forEach((hoverable) => {
+		  hoverable.removeEventListener('mouseenter', onMouseHover);
+		  hoverable.removeEventListener('mouseleave', onMouseHoverOut);
+		});
+		
 	  };
   
 	}, []);
@@ -74,6 +131,21 @@ export default function Home() {
 
 	return (
 		<>
+
+<div className={styles.cursor}>
+    <div ref={bigBallRef} className={`${styles.cursor__ball}`}>
+        <svg height="30" width="30">
+            <circle cx="15" cy="15" r="12" strokeWidth="0"></circle>
+        </svg>
+    </div>
+    <div ref={smallBallRef} className={`${styles.cursor__ball}`}>
+        <svg height="10" width="10">
+            <circle cx="5" cy="5" r="4" strokeWidth="0"></circle>
+        </svg>
+    </div>
+</div>
+
+
 	<audio
         src="/frontpage.aac"
         ref={audioRef}
