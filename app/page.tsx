@@ -49,6 +49,8 @@ export default function Home() {
 	const [isPortrait, setIsPortrait] = useState<boolean | null>(null);
 
 	useEffect(() => {
+		document.body.style.cursor = 'none';
+
 		// Directly use refs in the listeners
 		const onMouseMove = (e: MouseEvent) => {
 			console.log(e.clientX, e.clientY); 
@@ -107,6 +109,8 @@ export default function Home() {
 	
 	  // Cleanup
 	  return () => {
+		document.body.style.cursor = 'default';
+		
 		window.removeEventListener('resize', checkOrientation);
 		window.removeEventListener('orientationchange', checkOrientation);
 
@@ -131,6 +135,13 @@ export default function Home() {
 
 	return (
 		<>
+		<style jsx>{`
+    		.hide-cursor {
+    		    cursor: none;
+    		}`}</style>
+
+		<div
+className="hide-cursor">
 
 <div className={styles.cursor}>
     <div ref={bigBallRef} className={`${styles.cursor__ball}`}>
@@ -610,7 +621,7 @@ love for Aimer's music.
 
 
 
-
+	</div>
 	</>
 	);
 }
