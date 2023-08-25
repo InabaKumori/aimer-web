@@ -562,7 +562,7 @@ export default function Home() {
                       fontStyle: "normal",
                     }}
                   >
-                    A little scroll up will reveal magical surprises! ✨
+                    A little scroll down will reveal magical surprises! ✨
                   </h2>
                 </div>
               </div>
