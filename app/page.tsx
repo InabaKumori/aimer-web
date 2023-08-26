@@ -5,10 +5,8 @@ import Particles from "./components/particles";
 import { useState, useEffect, useRef } from "react";
 import styles from "./Home.module.css";
 import Button from "./components/button.js";
-import Head from "next/head";
-import { TweenLite } from "gsap";
 import { TweenMax } from "gsap";
-import dynamic from "next/dynamic";
+
 
 const navigation = [
   { name: "Projects", href: "/projects" },
