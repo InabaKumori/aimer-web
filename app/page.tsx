@@ -17,6 +17,23 @@ export default function Home() {
   const bigBallRef = useRef(null);
   const smallBallRef = useRef(null);
 
+  const onMouseHover = () => {
+    document.body.style.cursor = "none";
+    console.log("Hovering");
+    TweenMax.to(bigBallRef.current, 0.3, {
+      scale: 4,
+    });
+  };
+
+  const onMouseHoverOut = () => {
+    console.log("Hover Out");
+    TweenMax.to(bigBallRef.current, 0.3, {
+      scale: 1,
+    });
+  };
+
+  const hoverableRef = useRef(null);
+
   const [isLoading, setIsLoading] = useState(true);
 
   const handleVideoEnd = () => {
@@ -40,8 +57,8 @@ export default function Home() {
 
     // Directly use refs in the listeners
     const onMouseMove = (e: MouseEvent) => {
-      console.log(e.clientX, e.clientY);
-      console.log(bigBallRef.current, smallBallRef.current);
+  
+      
 
       if (bigBallRef.current && smallBallRef.current) {
         TweenMax.to(bigBallRef.current, 0.4, {
@@ -49,35 +66,22 @@ export default function Home() {
           y: e.clientY - 15,
         });
 
-        TweenMax.to(smallBallRef.current, 0.1, {
+        TweenMax.to(smallBallRef.current, 0.05, {
           x: e.clientX - 5,
           y: e.clientY - 7,
         });
       }
     };
 
-    const onMouseHover = () => {
-      if (bigBallRef.current) {
-        TweenMax.to(bigBallRef.current, 0.3, {
-          scale: 4,
-        });
-      }
-    };
-
-    const onMouseHoverOut = () => {
-      if (bigBallRef.current) {
-        TweenMax.to(bigBallRef.current, 0.3, {
-          scale: 1,
-        });
-      }
-    };
-
-    const $hoverables = document.querySelectorAll(".hoverable");
+    
     document.body.addEventListener("mousemove", onMouseMove);
-    $hoverables.forEach((hoverable) => {
-      hoverable.addEventListener("mouseenter", onMouseHover);
-      hoverable.addEventListener("mouseleave", onMouseHoverOut);
-    });
+
+
+    // Handle hoverable
+    if (hoverableRef.current) {
+      hoverableRef.current.addEventListener("mouseenter", onMouseHover);
+      hoverableRef.current.addEventListener("mouseleave", onMouseHoverOut);
+    }
 
     const checkOrientation = () => {
       setIsPortrait(window.innerHeight > window.innerWidth);
@@ -98,10 +102,11 @@ export default function Home() {
       window.removeEventListener("orientationchange", checkOrientation);
 
       document.body.removeEventListener("mousemove", onMouseMove);
-      $hoverables.forEach((hoverable) => {
-        hoverable.removeEventListener("mouseenter", onMouseHover);
-        hoverable.removeEventListener("mouseleave", onMouseHoverOut);
-      });
+
+      if (hoverableRef.current) {
+        hoverableRef.current.removeEventListener("mouseenter", onMouseHover);
+        hoverableRef.current.removeEventListener("mouseleave", onMouseHoverOut);
+      }
     };
   }, []);
 
@@ -396,6 +401,9 @@ export default function Home() {
             </div>
 
             <div
+                ref={hoverableRef}        
+                onMouseEnter={onMouseHover}
+                onMouseLeave={onMouseHoverOut}
               style={{
                 position: "fixed",
                 top: 0, // start from top
@@ -408,9 +416,10 @@ export default function Home() {
                 flexDirection: "column", // stack children vertically
                 zIndex: 50000,
                 pointerEvents: "none",
+                cursor: "none",
               }}
             >
-              <Button />
+              <Button  />
             </div>
 
             <div className="fixed flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
@@ -447,14 +456,18 @@ export default function Home() {
                 {isPortrait && (
                   <nav
                     className="-my-5 sm:my-0 animate-fade-in"
-                    style={{ zIndex: 99999, marginTop: "5vh", pointerEvents: 'auto', position: "fixed", display: "flex",}}
+                    style={{cursor: "none", zIndex: 99999, marginTop: "5vh", pointerEvents: 'auto', position: "fixed", display: "flex",}}
                   >
                     <ul className="flex items-center justify-center gap-4">
                       {navigation.map((item) => (
                         <Link
+                          ref={hoverableRef}        
+                          onMouseEnter={onMouseHover}
+                          onMouseLeave={onMouseHoverOut}
                           key={item.href}
                           href={item.href}
                           className="text-sm duration-500 text-zinc-500 hover:text-zinc-300"
+                          style={{ zIndex: 50002, cursor: "none"}}
                         >
                           {item.name}
                         </Link>
@@ -466,15 +479,18 @@ export default function Home() {
                 {!isPortrait && (
                   <nav
                     className="-my-5 sm:my-0 animate-fade-in"
-                    style={{ zIndex: 99999, marginTop: "-30vh", pointerEvents: 'auto', position: "fixed", display: "flex",}}
+                    style={{cursor: "none", zIndex: 99999, marginTop: "-30vh", pointerEvents: 'auto', position: "fixed", display: "flex",}}
                   >
                     <ul className="flex items-center justify-center gap-4" style={{ zIndex: 99999,}}>
                       {navigation.map((item) => (
                         <Link
+                          ref={hoverableRef}        
+                          onMouseEnter={onMouseHover}
+                          onMouseLeave={onMouseHoverOut}
                           key={item.href}
                           href={item.href}
                           className="text-sm duration-500 text-zinc-500 hover:text-zinc-300"
-						  style={{ zIndex: 50002,}}
+						              style={{ zIndex: 50002, cursor: "none"}}
                         >
                           {item.name}
                         </Link>
