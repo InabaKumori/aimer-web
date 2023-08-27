@@ -77,7 +77,7 @@ return(
   <button 
   
   className="toggle" 
-  style={{ zIndex: 10001, position: "relative",pointerEvents: 'auto'}}
+  style={{cursor: "none", zIndex: 10001, position: "relative",pointerEvents: 'auto'}}
   onClick={handleButtonClick} // Using click handler here
   aria-pressed={isPressed ? "true" : "false"} // Using state here
   title="Toggle Dark Mode">
