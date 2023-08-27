@@ -32,7 +32,7 @@ export default function Home() {
     });
   };
 
-  const hoverableRef = useRef(null);
+  const hoverableRef = useRef<HTMLElement | null>(null);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -401,7 +401,7 @@ export default function Home() {
             </div>
 
             <div
-                ref={hoverableRef}        
+                ref={hoverableRef as React.MutableRefObject<HTMLDivElement>}  
                 onMouseEnter={onMouseHover}
                 onMouseLeave={onMouseHoverOut}
               style={{
@@ -461,7 +461,7 @@ export default function Home() {
                     <ul className="flex items-center justify-center gap-4">
                       {navigation.map((item) => (
                         <Link
-                          ref={hoverableRef}        
+                          ref={hoverableRef as React.RefObject<HTMLAnchorElement>}        
                           onMouseEnter={onMouseHover}
                           onMouseLeave={onMouseHoverOut}
                           key={item.href}
@@ -484,7 +484,7 @@ export default function Home() {
                     <ul className="flex items-center justify-center gap-4" style={{ zIndex: 99999,}}>
                       {navigation.map((item) => (
                         <Link
-                          ref={hoverableRef}        
+                          ref={hoverableRef as React.RefObject<HTMLAnchorElement>}         
                           onMouseEnter={onMouseHover}
                           onMouseLeave={onMouseHoverOut}
                           key={item.href}
