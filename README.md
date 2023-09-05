@@ -1,7 +1,6 @@
 <div align="center">
     <a href="https://aimer-web.com"><h1 align="center">Aimer-web.com</h1></a>
 
-    <img width="1441" alt="Screenshot 2023-09-05 at 2 54 29 PM" src="https://github.com/InabaKumori/aimer-web/assets/51642034/cdcfb91f-bb47-4042-bb10-c5f8b1587a24">
 
     
 My personal website, built with [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), [Upstash](https://upstash.com?ref=chronark.com), [Contentlayer](https://www.contentlayer.dev/) and deployed to [Vercel](https://vercel.com/).
@@ -10,7 +9,7 @@ Images are licensed with Adobe.
 </div>
 
 <br/>
-
+<img width="1441" alt="Screenshot 2023-09-05 at 2 54 29 PM" src="https://github.com/InabaKumori/aimer-web/assets/51642034/cdcfb91f-bb47-4042-bb10-c5f8b1587a24">
 ## Running Locally
 
 
